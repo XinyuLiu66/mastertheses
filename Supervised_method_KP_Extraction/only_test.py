@@ -57,4 +57,4 @@
 import pickle
 train_y = pickle.load(open("train_y_1201.p", "rb"))
 from collections import Counter
-print(Counter(train_y))
+print(Counter(train_y[:20000]))

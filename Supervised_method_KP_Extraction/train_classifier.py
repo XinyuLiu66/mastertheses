@@ -12,8 +12,8 @@ train_y = pickle.load(open("train_y_1201.p", "rb"))
 
 # ============== train classifier ============== #
 
-rank_svm = RankSVM().fit(train_X[:30000], train_y[:30000])
-pickle.dump(rank_svm, open("rank_svm_1201.p", "wb"))
+rank_svm = RankSVM().fit(train_X[:2000], train_y[:2000])
+pickle.dump(rank_svm, open("rank_svm_1201_10.p", "wb"))
 
 
 
