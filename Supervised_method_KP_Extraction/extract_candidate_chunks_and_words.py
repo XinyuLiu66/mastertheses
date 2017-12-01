@@ -11,6 +11,10 @@ def extract_candidate_chunks(text):
 
     # tokenize, POS-tag, and chunk using regular expressions
     grammar = "KT: {(<JJ>* <NN.*>+ <IN>)? <JJ>* <NN.*>+}"
+    # grammar = r"""
+    #             KT: {<DT|PP\$>?<JJ>*<NN>}
+    #                 {<NNP>+}
+    #             """
     chunker = nltk.RegexpParser(grammar)
     tagged_sents = nltk.pos_tag_sents(nltk.word_tokenize(sent)
                                       for sent in nltk.sent_tokenize(text))

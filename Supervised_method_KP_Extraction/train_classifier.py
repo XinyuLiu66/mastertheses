@@ -1,22 +1,24 @@
-from Supervised_method_KP_Extraction.rankSVM import *
-from Supervised_method_KP_Extraction.read_train_test_data import *
-from Supervised_method_KP_Extraction.test_model import *
-import pickle
 
-train_X = pickle.load(open("train_X.p", "rb"))
-train_y = pickle.load(open("train_y.p", "rb"))
-test_X = pickle.load(open("test_X.p", "rb"))
+import pickle
+import sys
+sys.path.append('../')
+from Supervised_method_KP_Extraction.rankSVM import RankSVM
+# from Supervised_method_KP_Extraction.read_train_test_data import *
+
+
+train_X = pickle.load(open("train_X_1201.p", "rb"))
+train_y = pickle.load(open("train_y_1201.p", "rb"))
+
 
 # ============== train classifier ============== #
 
-rank_svm = RankSVM()
-rank_svm.fit(train_X, train_y)
-# pickle.dump(rank_svm, open("test_rank_svm.p", "wb"))
+rank_svm = RankSVM().fit(train_X[:30000], train_y[:30000])
+pickle.dump(rank_svm, open("rank_svm_1201.p", "wb"))
 
 
 
-import pickle
-classifier = pickle.load(open("test_rank_svm.p", "rb"))
+#import pickle
+#classifier = pickle.dump(rank_svm, open("rank_svm_1130.p", "wb"))
 # train_X = train_X[5000:10000]
 # train_y = train_y[5000:10000]
 # print(classifier.coef_)

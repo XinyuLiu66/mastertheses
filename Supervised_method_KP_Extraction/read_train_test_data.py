@@ -14,10 +14,10 @@ def reader(path):
 
     # ===== get train and test documents ========== #
     train_data_path = path + "/train"
-    test_data_path = path + "/test"
+    # test_data_path = path + "/test"
 
     train_docs = get_docs(train_data_path)
-    test_docs = get_docs(test_data_path)
+    # test_docs = get_docs(test_data_path)
 
 
     # read labeled file for train documents
@@ -27,7 +27,7 @@ def reader(path):
         for line in lf:
             labeled_keyPhrases.append(line.replace("\n",""))
 
-    return train_docs, test_docs, labeled_keyPhrases
+    return train_docs,  labeled_keyPhrases
 
 
 # =================== call by reader =============
@@ -126,6 +126,7 @@ def data_preprocessing_test(docs):
 
 # ===== call by data pre-processing =============
 def is_labeled_keyPhrases(candidate, doc_labeled_keyPhrases):
+    import nltk
     """
     check if the candidate belong to labeled key phrases
     :param candidate:
@@ -136,15 +137,17 @@ def is_labeled_keyPhrases(candidate, doc_labeled_keyPhrases):
     from nltk.stem.porter import PorterStemmer
     flag = False
     stemmer = PorterStemmer()
-    stem_candidate = " ".join([stemmer.stem(word) for word in candidate])
+    candidate_in_words = [stemmer.stem(word) for word in nltk.word_tokenize(candidate)]
+    stem_candidate = " ".join(candidate_in_words)
+    # stem_candidate = " ".join([stemmer.stem(word) for word in candidate])
     if stem_candidate in doc_labeled_keyPhrases:
         flag = True
     # if candidate is included in any labeled key phrase
-    if flag is False:
-        for labeled_cand in doc_labeled_keyPhrases:
-            if stem_candidate in labeled_cand:
-                flag = True
-                break
+    # if flag is False:
+    #     for labeled_cand in doc_labeled_keyPhrases:
+    #         if stem_candidate in labeled_cand:
+    #             flag = True
+    #             break
 
     # if candidate include  any labeled key phrase
     if flag is False:
@@ -259,13 +262,15 @@ def get_labeled_keyphrases(file_name, labeled_keyPhrases):
 
 # ============== demo for all the methods ==================
 
-# path = "./SemEval2010"
-# train_docs, test_docs, label_file = reader(path)
-# train_X, train_y = data_preprocessing_train(train_docs, label_file)
-# test_X = data_preprocessing_test(test_docs)
-#
-# import pickle
-# pickle.dump(train_X, open("train_X.p", "wb"))
-# pickle.dump(train_y, open("train_y.p", "wb"))
-# pickle.dump(test_X, open("test_X.p", "wb"))
+path = "./SemEval2010"
+train_docs, label_file = reader(path)
+train_X, train_y = data_preprocessing_train(train_docs, label_file)
+
+
+import pickle
+pickle.dump(train_X, open("train_X_1201.p", "wb"))
+pickle.dump(train_y, open("train_y_1201.p", "wb"))
+
+
+
 

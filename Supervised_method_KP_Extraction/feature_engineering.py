@@ -39,8 +39,14 @@ def extract_candidate_features(candidates, doc_text, doc_excerpt, doc_title):
 
         # positional
         # found in title, key excerpt
-        in_title = 1 if pattern.search(doc_title) else 0
-        in_excerpt = 1 if pattern.search(doc_excerpt) else 0
+        if doc_title is True:
+            in_title = 1 if pattern.search(doc_title) else 0
+        else:
+            in_title = 0
+        if doc_excerpt is True:
+            in_excerpt = 1 if pattern.search(doc_excerpt) else 0
+        else:
+            in_excerpt = 0
         # first/last position, difference between them (spread)
         doc_text_length = float(len(doc_text))
         first_match = pattern.search(doc_text)
