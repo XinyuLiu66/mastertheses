@@ -58,6 +58,13 @@
 # train_y = pickle.load(open("train_y_1201.p", "rb"))
 # from collections import Counter
 # print(Counter(train_y[:20000]))
-import numpy as np
-a = np.array([2,3,5,1,6])
-print(np.argsort(a))
+# import numpy as np
+# a = np.array([2,3,5,1,6])
+# print(np.argsort(a))
+# pattern = re.compile(r'\b' + re.escape(candidate) + r'(\b|[,;.!?]|\s)', re.IGNORECASE)
+
+import re
+candidate = "I like"
+pattern = re.compile(r'\b' + re.escape(candidate) + r'(\b|[,;.!?|\s])', re.IGNORECASE)
+sent = " I like my motherland, I like ML, I like you!"
+print( pattern.search(sent))

@@ -1,8 +1,8 @@
 
 import pickle
 import sys
-sys.path.append('../')
-from Supervised_method_KP_Extraction.rankSVM import RankSVM
+sys.path.append('../Supervised_method_KP_Extraction/')
+from mastertheses.Supervised_method_KP_Extraction.rankSVM import RankSVM
 # from Supervised_method_KP_Extraction.read_train_test_data import *
 
 

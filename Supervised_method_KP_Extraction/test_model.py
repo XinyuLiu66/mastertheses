@@ -193,10 +193,10 @@ def get_docs(dir_path):
 
 
 # import pickle
-clf = pickle.load(open("rank_svm_1201_10000.p", "rb"))
-# print(clf.coef_)
-train_docs, test_docs, _ = reader("./SemEval2010")
-doc_text = train_docs["C-41.txt.final"]
+clf = pickle.load(open("rank_svm_1202_4000.p", "rb"))
+print(clf.coef_)
+# train_docs, test_docs, _ = reader("./SemEval2010")
+# doc_text = train_docs["C-41.txt.final"]
 #
 #
 # train_X = pickle.load(open("train_X_1130.p", "rb"))
@@ -212,11 +212,13 @@ doc_text = train_docs["C-41.txt.final"]
 # import nltk
 # doc_text = nltk.sent_tokenize(doc_text)
 # print(test_text)
-kp = list(reversed(predict_key_phrases(clf, doc_text)))
-print(" ==== KP ======")
-for i,x in enumerate(kp):
-    print(x)
-    if i == 20:
-        break
+
+
+# kp = list(reversed(predict_key_phrases(clf, doc_text)))
+# print(" ==== KP ======")
+# for i,x in enumerate(kp):
+#     print(i, x)
+#     if i == 20:
+#         break
 # print(kp[:20])
 

@@ -1,7 +1,10 @@
 import os
-from Supervised_method_KP_Extraction.extract_candidate_chunks_and_words import *
-from Supervised_method_KP_Extraction.feature_engineering import *
-
+import sys
+sys.path.append("../Supervised_method_KP_Extraction")
+from mastertheses.Supervised_method_KP_Extraction.extract_candidate_chunks_and_words import *
+from mastertheses.Supervised_method_KP_Extraction.feature_engineering import *
+# import extract_candidate_chunks_and_words
+# import feature_engineering
 # ============================= Part 1 =====================================
 def reader(path):
     """
@@ -268,8 +271,8 @@ train_X, train_y = data_preprocessing_train(train_docs, label_file)
 
 
 import pickle
-pickle.dump(train_X, open("train_X_1201.p", "wb"))
-pickle.dump(train_y, open("train_y_1201.p", "wb"))
+pickle.dump(train_X, open("train_X_1202.p", "wb"))
+pickle.dump(train_y, open("train_y_1202.p", "wb"))
 
 
 
