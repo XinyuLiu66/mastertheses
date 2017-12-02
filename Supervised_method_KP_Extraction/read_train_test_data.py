@@ -14,10 +14,10 @@ def reader(path):
 
     # ===== get train and test documents ========== #
     train_data_path = path + "/train"
-    # test_data_path = path + "/test"
+    test_data_path = path + "/test"
 
     train_docs = get_docs(train_data_path)
-    # test_docs = get_docs(test_data_path)
+    test_docs = get_docs(test_data_path)
 
 
     # read labeled file for train documents
@@ -27,7 +27,7 @@ def reader(path):
         for line in lf:
             labeled_keyPhrases.append(line.replace("\n",""))
 
-    return train_docs,  labeled_keyPhrases
+    return train_docs,  test_docs, labeled_keyPhrases
 
 
 # =================== call by reader =============
