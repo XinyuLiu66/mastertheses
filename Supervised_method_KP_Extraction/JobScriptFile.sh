@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -J job_KP_1202
+#SBATCH -J job_KP_1202_4000
 #SBATCH --mail-user=liuxinyu19930328@gmail.com
 #SBATCH --mail-type=ALL
 #SBATCH -e /home/kurse/kurs00015/xl23lico/errmsg/job.err.%j
