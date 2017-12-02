@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append("../Supervised_method_KP_Extraction")
+sys.path.append("../../")
 from mastertheses.Supervised_method_KP_Extraction.extract_candidate_chunks_and_words import *
 from mastertheses.Supervised_method_KP_Extraction.feature_engineering import *
 # import extract_candidate_chunks_and_words

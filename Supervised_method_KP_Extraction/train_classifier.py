@@ -1,20 +1,20 @@
 
 import pickle
 import sys
-sys.path.append('../Supervised_method_KP_Extraction/')
+sys.path.append('../..')
 from mastertheses.Supervised_method_KP_Extraction.rankSVM import RankSVM
 # from Supervised_method_KP_Extraction.read_train_test_data import *
 
 
-train_X = pickle.load(open("train_X_1201.p", "rb"))
-train_y = pickle.load(open("train_y_1201.p", "rb"))
+train_X = pickle.load(open("train_X_1202.p", "rb"))
+train_y = pickle.load(open("train_y_1202.p", "rb"))
 
 
 # ============== train classifier ============== #
 
-rank_svm = RankSVM().fit(train_X[:4000], train_y[:4000])
-pickle.dump(rank_svm, open("rank_svm_1202_4000.p", "wb"))
-print("Successful/n   rank_svm_1202_4000 /n")
+rank_svm = RankSVM().fit(train_X[:40000], train_y[:40000])
+pickle.dump(rank_svm, open("rank_svm_1202_40000.p", "wb"))
+print("Successful/n   rank_svm_1202_40000 /n")
 
 
 
