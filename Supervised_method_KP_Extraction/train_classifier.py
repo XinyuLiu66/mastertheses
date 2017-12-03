@@ -12,9 +12,9 @@ train_y = pickle.load(open("train_y_1202.p", "rb"))
 
 # ============== train classifier ============== #
 
-rank_svm = RankSVM().fit(train_X[:40000], train_y[:40000])
-pickle.dump(rank_svm, open("rank_svm_1202_40000.p", "wb"))
-print("Successful/n   rank_svm_1202_40000 /n")
+rank_svm = RankSVM().fit(train_X[:10000], train_y[:10000])
+pickle.dump(rank_svm, open("rank_svm_1203_10000.p", "wb"))
+print("Successful/n   rank_svm_1203_10000 /n")
 
 
 
